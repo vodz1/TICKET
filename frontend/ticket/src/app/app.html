@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3">
+<a class="navbar-brand" routerLink="/">Helpdesk</a>
+<div class="ms-auto" *ngIf="auth.isLoggedIn() as logged; else guest">
+<span class="text-light me-3">{{ auth.user()?.email }}</span>
+<button class="btn btn-outline-light btn-sm" (click)="auth.logout()">Logout</button>
+</div>
+<ng-template #guest>
+<a class="btn btn-outline-light btn-sm me-2" routerLink="/login">Login</a>
+<a class="btn btn-light btn-sm" routerLink="/register">Register</a>
+</ng-template>
+</nav>
+<div class="container py-4"><router-outlet /></div>
+`,

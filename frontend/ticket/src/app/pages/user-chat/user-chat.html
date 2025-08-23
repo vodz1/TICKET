@@ -1,0 +1,20 @@
+
+<h2 *ngIf="role === 'ADMIN' else user">Chat with User</h2>
+
+<div *ngFor="let msg of messages()" class="message">
+  <strong>{{ msg.senderEmail }}</strong>:
+  {{ msg.message }}
+  <small> {{ msg.at | date:'short' }}</small>
+</div>
+    <input [(ngModel)]="newMessage" placeholder="Type a message" />
+    <button (click)="send()">Send</button>
+
+    <ng-template #admin>
+        <h2>Chat with User</h2>
+    </ng-template>
+
+      <ng-template #user>
+        <h2>Chat with Admin</h2>
+    </ng-template>
+    
+    

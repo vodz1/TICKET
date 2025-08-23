@@ -1,0 +1,8 @@
+    <h2>Admin Dashboard</h2>
+<ul>
+  <li *ngFor="let t of tickets">
+    {{ t.title }} - {{ t.status }}
+    <button (click)="changeStatus(t._id, 'OPEN')" *ngIf="t.status==='PENDING'">Mark Open</button>
+    <button (click)="changeStatus(t._id, 'CLOSED')" *ngIf="t.status==='OPEN'">Close</button>
+  </li>
+</ul>
