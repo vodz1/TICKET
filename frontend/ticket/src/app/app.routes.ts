@@ -7,12 +7,16 @@ import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
 import { authGuard } from './Guards/auth.guard';
 import { roleGuard } from './Guards/role.guard';
 import { UnAuthorized } from './un-authorized/un-authorized';
+import { Products } from './pages/products/products';
 
 
 export const routes: Routes = [
 { path: '', redirectTo: 'tickets', pathMatch: 'full' },
 { path: 'login', component: Login },
 { path: 'register', component: Register },
+{ path: 'products', component: Products , canActivate : [authGuard , roleGuard],  
+      data: { allowedRoles: ['USER' , 'ADMIN'] }
+},
 { path: 'tickets', component: UserTicket , canActivate : [authGuard , roleGuard],
     data: { allowedRoles: ['USER'] }
  },

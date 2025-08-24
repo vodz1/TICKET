@@ -29,6 +29,7 @@ export class ProductsService {
 
 
   async search(query : any){
+    console.log('Raw Query: ', query);
     const searchingQuery = {}
     if(query.name) searchingQuery['name'] = { $regex:`^${query.name}`, $options: 'i' };
     if(query.description) searchingQuery['description'] = { $regex:`^${query.description}`, $options: 'i' };

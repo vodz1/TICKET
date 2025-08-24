@@ -16,9 +16,11 @@ export class ProductsService {
     return this.http.get(`${this.baseUrl}?page=${page}&limit=${limit}`);
   }
 
-  searchProducts(query: any) {
-    return this.http.get(`${this.baseUrl}/search`, { params: query });
-  }
+searchProducts(field: string, value: string | number) {
+  return this.http.get(`${this.baseUrl}/search`, {
+    params: { [field]: value }
+  });
+}
 
   getProductById(id: string) {
     return this.http.get(`${this.baseUrl}/${id}`);

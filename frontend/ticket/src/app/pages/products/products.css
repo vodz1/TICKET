@@ -1,0 +1,17 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;  /* allows multiple rows if not enough space */
+  gap: 1rem;        /* spacing between cards */
+}
+
+.card-container p-card {
+  flex: 0 0 auto;   /* prevents cards from stretching */
+}
+
+.products{
+    margin-top: 2rem;
+}
+
+.search-bar{
+  margin-top: 2rem;
+}
